@@ -1,0 +1,12 @@
+.header {
+  @apply flex items-center justify-between p-2 pl-4 rounded-lg;
+  border: 3px solid theme('colors.gray.100');
+}
+
+.header__logo-wrapper {
+  @apply flex items-center h-full;
+}
+
+.header__logo {
+  height: 52px;
+}

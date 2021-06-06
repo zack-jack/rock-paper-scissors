@@ -1,10 +1,13 @@
+import Header from './components/Header';
+
 function App() {
   return (
-    <main>
-      <header>
-        <h1>Rock Paper Scissors</h1>
-      </header>
-    </main>
+    <div className="app p-7">
+      <Header />
+      <main>
+        Game content
+      </main>
+    </div>
   );
 }
 

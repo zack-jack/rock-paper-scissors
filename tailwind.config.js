@@ -1,12 +1,29 @@
 const { colors, fontFamily } = require('tailwindcss/defaultTheme');
 
+// spacing by 4 up to a multiple of 10
+// 0 index is 0, 11 index is 40
+const spacing = new Array(11)
+  .fill()
+  .reduce((result, _, index) => Object.assign(result, { [index]: `${index * 4}px` }), {});
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    spacing,
     extend: {
       fontFamily: {
         sans: ['Barlow Semi Condensed', ...fontFamily.sans],
+      },
+      fontSize: {
+        xs: '10px',
+        sm: '12px',
+        base: '16px',
+        lg: '18px',
+        xl: '22px',
+        '2xl': '28px',
+        '3xl': '32px',
+        '4xl': '44px',
       },
       colors: {
         transparent: 'transparent',
