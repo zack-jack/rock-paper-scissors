@@ -1,0 +1,10 @@
+.game {
+  @apply flex flex-wrap items-center justify-between bg-cover bg-no-repeat;
+  height: 400px;
+  background-image: url('../../assets/images/_bg-triangle.svg');
+  background-position: 10px 75px;
+}
+
+.game > .circle:last-child {
+  @apply w-full;
+}
