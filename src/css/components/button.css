@@ -1,0 +1,9 @@
+.c-btn {
+  @apply px-10 py-2 rounded-lg text-white uppercase tracking-widest;
+  border: 2px solid theme('colors.gray.100');
+  transition: 0.3s;
+}
+
+.c-btn:hover {
+  @apply bg-white text-gray-100 font-semibold;
+}

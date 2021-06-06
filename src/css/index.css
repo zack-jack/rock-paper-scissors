@@ -1,4 +1,5 @@
 @tailwind base;
 @tailwind components;
 @import "./components/index.css";
+@import "./animations/index.css";
 @tailwind utilities;

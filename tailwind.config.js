@@ -18,6 +18,7 @@ module.exports = {
       fontSize: {
         xs: '10px',
         sm: '12px',
+        md: '14px',
         base: '16px',
         lg: '18px',
         xl: '22px',
@@ -66,7 +67,7 @@ module.exports = {
         },
       },
       screens: {
-        desktop: '1024px',
+        'desktop': '1024px',
       },
     },
   },

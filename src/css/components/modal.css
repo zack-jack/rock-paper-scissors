@@ -1,0 +1,57 @@
+.modal {
+  @apply fixed inset-0 z-20 overflow-x-hidden overflow-y-auto;
+  animation-duration: 10s;
+
+  @screen desktop {
+    @apply flex flex-col justify-center;
+  }
+}
+
+.modal__backdrop {
+  @screen desktop {
+    @apply fixed inset-0 bg-black bg-opacity-30;
+    z-index: 1;
+  }
+}
+
+.modal__dialog {
+  @apply flex flex-col items-center justify-between h-full w-full max-w-lg bg-white px-8;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  z-index: 2;
+
+  @screen desktop {
+    @apply flex-row flex-wrap items-start h-auto rounded-xl p-8;
+    margin: auto;
+  }
+}
+
+.modal__header {
+  @apply flex items-center justify-between;
+}
+
+.modal__heading {
+  @apply text-indigo-100 text-3xl font-semibold text-center uppercase leading-none;
+
+  @screen desktop {
+    order: 1;
+  }
+}
+
+.modal__close-btn {
+  height: 20px;
+  width: 20px;
+
+  @screen desktop {
+    order: 2;
+  }
+}
+
+.modal__content {
+  @apply flex flex-col justify-center h-full w-full;
+
+  @screen desktop {
+    @apply mt-10 h-auto;
+    order: 3;
+  }
+}
