@@ -9,7 +9,7 @@ import React from 'react';
 import {
   act, fireEvent, render, screen,
 } from '@testing-library/react';
-import Game from '../Game';
+import Footer from '../Footer';
 
 const page = {
   modal: {
@@ -22,7 +22,7 @@ const page = {
 };
 
 test('modal shows when rules button clicked', () => {
-  render(<Game />);
+  render(<Footer />);
 
   fireEvent.click(screen.getByTestId(page.button.rules));
 
@@ -31,7 +31,7 @@ test('modal shows when rules button clicked', () => {
 
 test('modal is closed when x button clicked', async () => {
   jest.useFakeTimers();
-  render(<Game />);
+  render(<Footer />);
 
   fireEvent.click(screen.getByTestId(page.button.rules));
   fireEvent.click(screen.getByTestId(page.modal.close));
