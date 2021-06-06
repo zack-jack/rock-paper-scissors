@@ -6,10 +6,12 @@ import { ReactComponent as CloseXSVG } from '../assets/images/_icon-close-x.svg'
 const Modal = ({
   heading, children, isOpen, close,
 }) => {
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(false);
+
+  if (active && !isOpen) setActive(() => false);
 
   const onClose = () => {
-    setActive(true);
+    setActive((currentIsActive) => !currentIsActive);
 
     setTimeout(() => {
       close();
