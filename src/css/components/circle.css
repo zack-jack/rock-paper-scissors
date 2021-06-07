@@ -1,5 +1,11 @@
 .circle {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center cursor-pointer;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
 .circle__outer {

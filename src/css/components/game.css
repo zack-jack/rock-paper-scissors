@@ -1,10 +1,14 @@
 .game {
-  @apply flex flex-wrap items-center justify-between bg-cover bg-no-repeat;
-  height: 400px;
+  @apply bg-cover bg-no-repeat;
   background-image: url('../../assets/images/_bg-triangle.svg');
   background-position: 10px 75px;
 }
 
-.game > .circle:last-child {
+.game__form {
+  @apply flex flex-wrap items-center justify-between;
+  height: 400px;
+}
+
+.game__form > .input-radio:last-child {
   @apply w-full;
 }

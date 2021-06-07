@@ -12,7 +12,7 @@ const Footer = () => {
         <button
           data-testid="rules-btn"
           type="button"
-          className="c-btn"
+          className="btn"
           onClick={open}
         >
           Rules

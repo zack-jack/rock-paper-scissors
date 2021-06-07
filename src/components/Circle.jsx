@@ -11,9 +11,6 @@ const Circle = ({ color, icon }) => (
   </div>
 );
 
-Circle.defaultProps = {
-};
-
 Circle.propTypes = {
   color: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,

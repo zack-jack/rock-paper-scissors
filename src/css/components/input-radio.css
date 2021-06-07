@@ -1,0 +1,7 @@
+.input-radio {
+  @apply relative;
+}
+
+.input-radio__field {
+  @apply sr-only;
+}
