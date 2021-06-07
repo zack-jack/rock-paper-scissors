@@ -25,6 +25,7 @@ module.exports = {
         '2xl': '28px',
         '3xl': '32px',
         '4xl': '44px',
+        '5xl': '48px',
       },
       colors: {
         transparent: 'transparent',
@@ -67,7 +68,7 @@ module.exports = {
         },
       },
       screens: {
-        'desktop': '1024px',
+        desktop: '1024px',
       },
     },
   },
@@ -75,4 +76,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

@@ -1,9 +1,14 @@
 .btn {
-  @apply px-10 py-2 rounded-lg text-white uppercase tracking-widest;
-  border: 2px solid theme('colors.gray.100');
+  @apply px-10 py-2 rounded-lg bg-white text-indigo-100 font-semibold uppercase tracking-widest;
+  border: 2px solid theme('colors.white');
   transition: 0.3s;
 }
 
-.btn:hover {
+.btn--ghost {
+  @apply bg-transparent text-white;
+  border: 2px solid theme('colors.gray.100');
+}
+
+.btn--ghost:hover {
   @apply bg-white text-gray-100 font-semibold;
 }

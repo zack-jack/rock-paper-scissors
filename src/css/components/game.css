@@ -1,3 +1,7 @@
+.game {
+  @apply flex flex-col justify-between;
+}
+
 .game.step-one {
   @apply bg-cover bg-no-repeat;
   background-image: url('../../assets/images/_bg-triangle.svg');
@@ -15,4 +19,8 @@
 
 .game__selection-label {
   @apply text-white uppercase font-semibold text-lg tracking-wider;
+}
+
+.game__finished-msg {
+  @apply text-white uppercase font-bold text-5xl tracking-wide;
 }

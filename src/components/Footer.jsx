@@ -12,7 +12,7 @@ const Footer = () => {
         <button
           data-testid="rules-btn"
           type="button"
-          className="btn"
+          className="btn btn--ghost"
           onClick={open}
         >
           Rules

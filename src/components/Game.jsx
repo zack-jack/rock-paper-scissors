@@ -8,6 +8,17 @@ import { ReactComponent as ScissorsSVG } from '../assets/images/_icon-scissors.s
 const Game = () => {
   const [selectedValue, setSelectedValue] = useState('');
   const [compValue, setCompValue] = useState('');
+  const [finishEnum, setFinishEnum] = useState('');
+
+  const getFinishMessage = () => {
+    const messageMap = {
+      win: 'You won',
+      loss: 'You lost',
+      tie: 'You tied',
+    };
+
+    return messageMap[finishEnum];
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -18,11 +29,38 @@ const Game = () => {
     submit(e);
   };
 
+  // Win, loss, tie declared
   if (selectedValue && compValue) {
-    // Win, loss, tie declared
     return (
-      <div>
-        outcome
+      <div className="game step-three">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col items-center">
+            <Circle
+              color="blue"
+              icon={<PaperSVG />}
+              className="circle--winner"
+            />
+            <p className="game__selection-label mt-4">You picked</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Circle
+              color="yellow"
+              icon={<ScissorsSVG />}
+            />
+            <p className="game__selection-label mt-4">The house picked</p>
+          </div>
+        </div>
+        <div className="text-center">
+          <p className="game__finished-msg mt-8">
+            { getFinishMessage() }
+          </p>
+          <button
+            type="button"
+            className="btn mt-6"
+          >
+            Play again
+          </button>
+        </div>
       </div>
     );
   }
