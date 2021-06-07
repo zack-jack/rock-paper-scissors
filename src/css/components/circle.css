@@ -1,11 +1,7 @@
 .circle {
-  @apply flex items-center justify-center cursor-pointer;
-}
-
-.circle:hover {
-  transform: scale(1.1);
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
+  @apply flex items-center justify-center;
+  height: 130px;
+  width: 130px;
 }
 
 .circle__outer {
@@ -40,5 +36,26 @@
 .circle--yellow {
   .circle__outer {
     background: linear-gradient(to bottom, theme('colors.yellow.100') 70%, theme('colors.yellow.200'));
+  }
+}
+
+.circle--empty {
+  .circle__inner {
+    width: 90%;
+    padding: 45% 0;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: none;
+  }
+}
+
+.input-radio {
+  .circle {
+    @apply cursor-pointer;
+  }
+
+  .circle:hover {
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
   }
 }

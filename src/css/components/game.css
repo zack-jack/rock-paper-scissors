@@ -1,4 +1,4 @@
-.game {
+.game.step-one {
   @apply bg-cover bg-no-repeat;
   background-image: url('../../assets/images/_bg-triangle.svg');
   background-position: 10px 75px;
@@ -11,4 +11,8 @@
 
 .game__form > .input-radio:last-child {
   @apply w-full;
+}
+
+.game__selection-label {
+  @apply text-white uppercase font-semibold text-lg tracking-wider;
 }
