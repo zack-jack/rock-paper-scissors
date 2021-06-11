@@ -1,11 +1,12 @@
 import React, {
-  useCallback, useEffect, useMemo, useState,
+  useEffect, useMemo, useState,
 } from 'react';
 import Circle from './Circle';
 import InputRadio from './InputRadio';
 import { ReactComponent as RockSVG } from '../assets/images/_icon-rock.svg';
 import { ReactComponent as PaperSVG } from '../assets/images/_icon-paper.svg';
 import { ReactComponent as ScissorsSVG } from '../assets/images/_icon-scissors.svg';
+import useScore from '../hooks/useScore';
 
 const Game = () => {
   const [selectedValue, setSelectedValue] = useState('');
@@ -13,33 +14,42 @@ const Game = () => {
   const [result, setResult] = useState('');
   // array order matters
   const options = useMemo(() => ['rock', 'paper', 'scissors'], []);
+  const { currentScore, setCurrentScore } = useScore();
 
-  /**
-   * Runs game logic to determine win/loss/tie
-   * @returns {String} - win | loss | tie
-   */
-  const declareWinner = useCallback(() => {
+  useEffect(() => {
     const x = options.indexOf(selectedValue);
     const y = options.indexOf(computerSelection);
 
     switch (true) {
       case x === y:
-        return 'tie';
+        setResult('tie');
+        break;
       case y === 0 && x === (options.length - 1):
-        return 'loss';
+        setResult('loss');
+        setCurrentScore(currentScore - 1);
+        break;
       case x === 0 && y === (options.length - 1):
-        return 'win';
       case x > y:
-        return 'win';
+        setResult('win');
+        setCurrentScore(currentScore + 1);
+        break;
       default:
-        return 'loss';
+        setResult('loss');
+        setCurrentScore(currentScore - 1);
+        break;
     }
-  }, [computerSelection, options, selectedValue]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [computerSelection]);
 
-  useEffect(() => {
-    const messageHash = declareWinner();
-    setResult(messageHash);
-  }, [computerSelection, declareWinner]);
+  /**
+   * Randomly selects an available option to play
+   * @returns {String} - one of the options
+   */
+  const simulateComputerSelection = () => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+
+    return options[randomIndex];
+  };
 
   /**
    * Get win, loss or tie message to display at the end of a round
@@ -93,16 +103,6 @@ const Game = () => {
         className={getClassName()}
       />
     );
-  };
-
-  /**
-   * Randomly selects an available option to play
-   * @returns {String} - one of the options
-   */
-  const simulateComputerSelection = () => {
-    const randomIndex = Math.floor(Math.random() * options.length);
-
-    return options[randomIndex];
   };
 
   const submit = (e) => {
