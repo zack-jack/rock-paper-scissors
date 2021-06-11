@@ -9,6 +9,7 @@ import { ReactComponent as ScissorsSVG } from '../assets/images/_icon-scissors.s
 import useScore from '../hooks/useScore';
 
 const Game = () => {
+  const [loading, setLoading] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
   const [computerSelection, setComputerSelection] = useState('');
   const [result, setResult] = useState('');
@@ -56,8 +57,6 @@ const Game = () => {
    * @returns {String}
    */
   const getResultMessage = () => {
-    if (!selectedValue || !computerSelection) return '';
-
     const messageMap = {
       win: 'You won',
       loss: 'You lost',
@@ -74,6 +73,8 @@ const Game = () => {
    * @returns {JSX}
    */
   const getSelectionIcon = ({ value, player = false }) => {
+    if (loading && !player) return <Circle loading />;
+
     const attrs = {
       0: {
         color: 'red',
@@ -108,10 +109,14 @@ const Game = () => {
   const submit = (e) => {
     e.preventDefault();
 
+    setLoading(true);
     setSelectedValue(e.target.value);
 
-    const simulated = simulateComputerSelection();
-    setComputerSelection(simulated);
+    setTimeout(() => {
+      const simulated = simulateComputerSelection();
+      setComputerSelection(simulated);
+      setLoading(false);
+    }, 2400);
   };
 
   const handleValueChange = (e) => {
@@ -127,7 +132,7 @@ const Game = () => {
   };
 
   // Win, loss, tie declared
-  if (selectedValue && computerSelection) {
+  if (selectedValue) {
     return (
       <div
         data-testid="step-three"
@@ -137,75 +142,47 @@ const Game = () => {
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center">
               {
-              getSelectionIcon({
-                value: options.indexOf(selectedValue),
-                player: true,
-              })
-            }
+                getSelectionIcon({
+                  value: options.indexOf(selectedValue),
+                  player: true,
+                })
+              }
               <p className="game__selection-label mt-4">You picked</p>
             </div>
             <div className="flex flex-col items-center">
               {
-              getSelectionIcon({
-                value: options.indexOf(computerSelection),
-                player: false,
-              })
-            }
+                getSelectionIcon({
+                  value: options.indexOf(computerSelection),
+                  player: false,
+                })
+              }
               <p className="game__selection-label mt-4">The house picked</p>
             </div>
           </div>
-          <div className="text-center">
+          <div className={loading ? 'flex flex-col invisible mt-8' : 'flex flex-col mt-8'}>
             <p
               data-testid="result-message"
-              className="game__finished-msg mt-8"
+              className="game__result-msg"
             >
               { getResultMessage() }
             </p>
-            <div className="flex flex-col">
-              <button
-                data-testid="reset-score"
-                type="button"
-                className="btn btn--ghost mt-6"
-                onClick={() => setCurrentScore(0)}
-              >
-                Reset score
-              </button>
-              <button
-                data-testid="play-again"
-                type="submit"
-                className="btn mt-6"
-              >
-                Play again
-              </button>
-            </div>
+            <button
+              data-testid="reset-score"
+              type="button"
+              className="btn btn--ghost mt-6"
+              onClick={() => setCurrentScore(0)}
+            >
+              Reset score
+            </button>
+            <button
+              data-testid="play-again"
+              type="submit"
+              className="btn mt-6"
+            >
+              Play again
+            </button>
           </div>
         </form>
-      </div>
-    );
-  }
-
-  if (selectedValue) {
-    // User selection made, computer randomizing value
-    return (
-      <div
-        data-testid="step-two"
-        className="game step-two"
-      >
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-center">
-            {
-              getSelectionIcon({
-                value: options.indexOf(selectedValue),
-                player: true,
-              })
-            }
-            <p className="game__selection-label mt-4">You picked</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <Circle empty />
-            <p className="game__selection-label mt-4">The house picked</p>
-          </div>
-        </div>
       </div>
     );
   }

@@ -21,6 +21,6 @@
   @apply text-white uppercase font-semibold text-lg tracking-wider;
 }
 
-.game__finished-msg {
-  @apply text-white uppercase font-bold text-5xl tracking-wide;
+.game__result-msg {
+  @apply text-white uppercase font-bold text-5xl text-center tracking-wide;
 }

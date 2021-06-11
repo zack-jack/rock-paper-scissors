@@ -35,9 +35,7 @@ test('modal is closed when x button clicked', async () => {
 
   fireEvent.click(screen.getByTestId(page.button.rules));
   fireEvent.click(screen.getByTestId(page.modal.close));
-  act(() => {
-    jest.runAllTimers();
-  });
+  act(() => jest.runAllTimers());
   const rulesModal = screen.queryByTestId(page.modal.rules);
 
   expect(rulesModal).not.toBeInTheDocument();

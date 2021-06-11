@@ -2,12 +2,12 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 const Circle = ({
-  className, color, empty, icon,
+  className, color, icon, loading,
 }) => {
-  if (empty) {
+  if (loading) {
     return (
-      <div className="circle circle--empty">
-        <div className="circle__inner" />
+      <div className="circle circle--loading">
+        <div className="circle__inner blink" />
       </div>
     );
   }
@@ -26,15 +26,15 @@ const Circle = ({
 Circle.defaultProps = {
   className: '',
   color: '',
-  empty: false,
   icon: null,
+  loading: false,
 };
 
 Circle.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
-  empty: PropTypes.bool,
   icon: PropTypes.node,
+  loading: PropTypes.bool,
 };
 
 export default Circle;

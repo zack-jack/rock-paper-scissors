@@ -1,5 +1,6 @@
 /*
   global
+  beforeEach,
   afterEach,
   test,
   expect,
@@ -8,7 +9,7 @@
 
 import React from 'react';
 import {
-  fireEvent, render, screen,
+  act, fireEvent, render, screen,
 } from '@testing-library/react';
 import Game from '../Game';
 import Header from '../Header';
@@ -31,6 +32,10 @@ const page = {
   score: 'score-value',
 };
 
+beforeEach(() => {
+  jest.useFakeTimers();
+});
+
 afterEach(() => {
   jest.spyOn(global.Math, 'random').mockRestore();
 });
@@ -44,6 +49,7 @@ test('User wins | rock > scissors', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You won');
@@ -58,6 +64,7 @@ test('User wins | scissors > paper', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.scissors));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You won');
@@ -72,6 +79,7 @@ test('User wins | paper > rock', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.paper));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You won');
@@ -86,6 +94,7 @@ test('User loses | rock < paper', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You lost');
@@ -100,6 +109,7 @@ test('User loses | scissors < rock', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.scissors));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You lost');
@@ -114,6 +124,7 @@ test('User loses | paper < scissors', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.paper));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You lost');
@@ -128,6 +139,7 @@ test('User ties | rock = rock', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You tied');
@@ -142,6 +154,7 @@ test('User ties | scissors = scissors', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.scissors));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You tied');
@@ -156,6 +169,7 @@ test('User ties | paper = paper', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.paper));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
 
   expect(screen.queryByTestId(page.resultMessage)).toHaveTextContent('You tied');
@@ -169,6 +183,7 @@ test('game is reset for another round | when play again button clicked', async (
   );
 
   fireEvent.click(screen.getByTestId(page.input.paper));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.button.playAgain);
   fireEvent.click(screen.getByTestId(page.button.playAgain));
   await screen.queryAllByTestId(page.stepOne);
@@ -186,6 +201,7 @@ test('score incremented | when user wins', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
   await screen.queryByTestId(page.score);
 
@@ -202,6 +218,7 @@ test('score decremented | when user loses', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
   await screen.queryByTestId(page.score);
 
@@ -218,6 +235,7 @@ test('score does not change | when user ties', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.resultMessage);
   await screen.queryByTestId(page.score);
 
@@ -234,6 +252,7 @@ test('score is reset | when user clicks reset button', async () => {
   );
 
   fireEvent.click(screen.getByTestId(page.input.rock));
+  act(() => jest.runAllTimers());
   await screen.queryByTestId(page.button.resetScore);
   fireEvent.click(screen.getByTestId(page.button.resetScore));
   await screen.queryByTestId(page.score);

@@ -39,11 +39,11 @@
   }
 }
 
-.circle--empty {
+.circle--loading {
   .circle__inner {
     width: 90%;
     padding: 45% 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.4);
     box-shadow: none;
   }
 }
