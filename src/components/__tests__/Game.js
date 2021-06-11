@@ -19,6 +19,7 @@ const page = {
   stepTwo: 'step-two',
   stepThree: 'step-three',
   button: {
+    resetScore: 'reset-score',
     playAgain: 'play-again',
   },
   input: {
@@ -218,6 +219,23 @@ test('score does not change | when user ties', async () => {
 
   fireEvent.click(screen.getByTestId(page.input.rock));
   await screen.queryByTestId(page.resultMessage);
+  await screen.queryByTestId(page.score);
+
+  expect(screen.queryByTestId(page.score)).toHaveTextContent('0');
+});
+
+test('score is reset | when user clicks reset button', async () => {
+  jest.spyOn(global.Math, 'random').mockReturnValue(0.67);
+  render(
+    <ScoreProvider score={0}>
+      <Header />
+      <Game />
+    </ScoreProvider>,
+  );
+
+  fireEvent.click(screen.getByTestId(page.input.rock));
+  await screen.queryByTestId(page.button.resetScore);
+  fireEvent.click(screen.getByTestId(page.button.resetScore));
   await screen.queryByTestId(page.score);
 
   expect(screen.queryByTestId(page.score)).toHaveTextContent('0');

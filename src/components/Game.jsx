@@ -161,13 +161,23 @@ const Game = () => {
             >
               { getResultMessage() }
             </p>
-            <button
-              data-testid="play-again"
-              type="submit"
-              className="btn mt-6"
-            >
-              Play again
-            </button>
+            <div className="flex flex-col">
+              <button
+                data-testid="reset-score"
+                type="button"
+                className="btn btn--ghost mt-6"
+                onClick={() => setCurrentScore(0)}
+              >
+                Reset score
+              </button>
+              <button
+                data-testid="play-again"
+                type="submit"
+                className="btn mt-6"
+              >
+                Play again
+              </button>
+            </div>
           </div>
         </form>
       </div>

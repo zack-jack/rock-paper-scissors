@@ -8,11 +8,11 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="flex justify-center">
+      <footer>
         <button
           data-testid="rules-btn"
           type="button"
-          className="btn btn--ghost"
+          className="btn btn--ghost w-full"
           onClick={open}
         >
           Rules

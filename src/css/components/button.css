@@ -4,7 +4,8 @@
   transition: 0.3s;
 }
 
-.btn--ghost {
+.btn--ghost,
+.btn--ghost:active {
   @apply bg-transparent text-white;
   border: 2px solid theme('colors.gray.100');
 }
