@@ -156,7 +156,11 @@ const Game = () => {
                   player: false,
                 })
               }
-              <p className="game__selection-label mt-4">The house picked</p>
+              <p
+                className={loading ? 'game__selection-label invisible mt-4' : 'game__selection-label mt-4'}
+              >
+                The house picked
+              </p>
             </div>
           </div>
           <div className={loading ? 'flex flex-col invisible mt-8' : 'flex flex-col mt-8'}>
