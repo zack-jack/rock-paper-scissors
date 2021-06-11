@@ -118,44 +118,58 @@ const Game = () => {
     submit(e);
   };
 
+  const reset = (e) => {
+    e.preventDefault();
+
+    setSelectedValue('');
+    setComputerSelection('');
+    setResult('');
+  };
+
   // Win, loss, tie declared
   if (selectedValue && computerSelection) {
     return (
-      <div className="game step-three">
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col items-center">
-            {
+      <div
+        data-testid="step-three"
+        className="game step-three"
+      >
+        <form noValidate onSubmit={reset}>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col items-center">
+              {
               getSelectionIcon({
                 value: options.indexOf(selectedValue),
                 player: true,
               })
             }
-            <p className="game__selection-label mt-4">You picked</p>
-          </div>
-          <div className="flex flex-col items-center">
-            {
+              <p className="game__selection-label mt-4">You picked</p>
+            </div>
+            <div className="flex flex-col items-center">
+              {
               getSelectionIcon({
                 value: options.indexOf(computerSelection),
                 player: false,
               })
             }
-            <p className="game__selection-label mt-4">The house picked</p>
+              <p className="game__selection-label mt-4">The house picked</p>
+            </div>
           </div>
-        </div>
-        <div className="text-center">
-          <p
-            data-testid="result-message"
-            className="game__finished-msg mt-8"
-          >
-            { getResultMessage() }
-          </p>
-          <button
-            type="button"
-            className="btn mt-6"
-          >
-            Play again
-          </button>
-        </div>
+          <div className="text-center">
+            <p
+              data-testid="result-message"
+              className="game__finished-msg mt-8"
+            >
+              { getResultMessage() }
+            </p>
+            <button
+              data-testid="play-again"
+              type="submit"
+              className="btn mt-6"
+            >
+              Play again
+            </button>
+          </div>
+        </form>
       </div>
     );
   }
@@ -163,7 +177,10 @@ const Game = () => {
   if (selectedValue) {
     // User selection made, computer randomizing value
     return (
-      <div className="game step-two">
+      <div
+        data-testid="step-two"
+        className="game step-two"
+      >
         <div className="flex items-center justify-between">
           <div className="flex flex-col items-center">
             {
@@ -185,7 +202,10 @@ const Game = () => {
 
   // No user selection has been made yet
   return (
-    <div className="game step-one">
+    <div
+      data-testid="step-one"
+      className="game step-one"
+    >
       <form noValidate className="game__form" onSubmit={submit}>
         <InputRadio
           formValue="paper"
