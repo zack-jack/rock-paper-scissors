@@ -4,13 +4,15 @@ import { PropTypes } from 'prop-types';
 const InputRadio = ({
   children, formValue, name, value, onValueChange,
 }) => {
-  const id = `${name}-${formValue.toLowerCase().replace(/ /g, '-')}`;
+  const inputId = `${name}-${formValue.toLowerCase().replace(/ /g, '-')}`;
+  const labelId = `${inputId}-label`;
 
   return (
     <div className="input-radio">
       <input
-        id={id}
+        id={inputId}
         checked={value === formValue}
+        data-testid={inputId}
         name={name}
         value={formValue}
         type="radio"
@@ -18,7 +20,8 @@ const InputRadio = ({
         onChange={(e) => onValueChange(e)}
       />
       <label
-        htmlFor={id}
+        data-testid={labelId}
+        htmlFor={inputId}
         className="input-radio__label"
       >
         {children}

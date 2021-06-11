@@ -1,7 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-const Circle = ({ color, empty, icon }) => {
+const Circle = ({
+  className, color, empty, icon,
+}) => {
   if (empty) {
     return (
       <div className="circle circle--empty">
@@ -11,7 +13,7 @@ const Circle = ({ color, empty, icon }) => {
   }
 
   return (
-    <div className={`circle circle--${color}`}>
+    <div className={`circle circle--${color} ${className}`}>
       <div className="circle__outer">
         <div className="circle__inner">
           {icon}
@@ -22,12 +24,14 @@ const Circle = ({ color, empty, icon }) => {
 };
 
 Circle.defaultProps = {
+  className: '',
   color: '',
   empty: false,
   icon: null,
 };
 
 Circle.propTypes = {
+  className: PropTypes.string,
   color: PropTypes.string,
   empty: PropTypes.bool,
   icon: PropTypes.node,
