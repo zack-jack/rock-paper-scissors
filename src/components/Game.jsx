@@ -43,7 +43,7 @@ const Game = () => {
   }, [computerSelection]);
 
   useEffect(() => {
-    localStorage.setItem('rpsscore', currentScore);
+    localStorage.setItem('rpsscore', currentScore.toString());
   }, [currentScore]);
 
   /**

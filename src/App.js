@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import ScoreProvider from './context/ScoreProvider';
 
 function App() {
-  const score = localStorage.getItem('rpsscore') || 0;
+  const score = JSON.parse(localStorage.getItem('rpsscore')) || 0;
 
   return (
     <ScoreProvider score={score}>
