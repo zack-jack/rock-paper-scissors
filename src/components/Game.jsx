@@ -120,7 +120,7 @@ const Game = () => {
       const simulated = simulateComputerSelection();
       setComputerSelection(simulated);
       setLoading(false);
-    }, 2400);
+    }, 1200);
   };
 
   const handleValueChange = (e) => {
