@@ -42,6 +42,10 @@ const Game = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [computerSelection]);
 
+  useEffect(() => {
+    localStorage.setItem('rpsscore', currentScore);
+  }, [currentScore]);
+
   /**
    * Randomly selects an available option to play
    * @returns {String} - one of the options
