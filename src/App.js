@@ -9,12 +9,14 @@ function App() {
 
   return (
     <ScoreProvider score={score}>
-      <div className="app p-7 pb-10">
-        <Header />
-        <main className="flex flex-col flex-grow justify-center py-8">
-          <Game />
-        </main>
-        <Footer />
+      <div className="bg-gradient">
+        <div className="u-container">
+          <Header />
+          <main className="flex flex-col flex-grow justify-center py-8">
+            <Game />
+          </main>
+          <Footer />
+        </div>
       </div>
     </ScoreProvider>
   );

@@ -1,11 +1,23 @@
 .score-card {
   @apply bg-white px-6 py-3 rounded text-center;
+
+  @screen desktop {
+    @apply h-full px-10 py-4 rounded-lg;
+  }
 }
 
 .score-card__label {
   @apply text-sm font-semibold uppercase leading-none tracking-widest text-blue-300;
+
+  @screen desktop {
+    @apply text-md;
+  }
 }
 
 .score-card__value {
   @apply mt-1 text-4xl font-bold leading-none text-indigo-100;
+
+  @screen desktop {
+    @apply text-6xl;
+  }
 }

@@ -1,4 +1,0 @@
-.app {
-  @apply flex flex-col justify-between w-screen h-screen;
-  background: radial-gradient(circle at top, theme('colors.indigo.200'), theme('colors.indigo.300'));
-}

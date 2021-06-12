@@ -3,3 +3,4 @@
 @import "./components/index.css";
 @import "./animations/index.css";
 @tailwind utilities;
+@import "./utilities/index.css";

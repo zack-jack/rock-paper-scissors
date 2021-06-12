@@ -1,0 +1,12 @@
+.bg-gradient {
+  background: radial-gradient(circle at top, theme('colors.indigo.200'), theme('colors.indigo.300'));
+}
+
+.u-container {
+  @apply flex flex-col justify-between w-screen h-screen p-7 pb-10;
+
+  @screen desktop {
+    @apply mx-auto p-10;
+    max-width: 1440px;
+  }
+}

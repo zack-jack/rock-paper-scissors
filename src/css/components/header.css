@@ -1,6 +1,11 @@
 .header {
   @apply flex items-center justify-between p-2 pl-4 rounded-lg;
   border: 3px solid theme('colors.gray.100');
+
+  @screen desktop {
+    @apply p-4 rounded-2xl;
+    height: 150px;
+  }
 }
 
 .header__logo-wrapper {
@@ -9,4 +14,8 @@
 
 .header__logo {
   height: 52px;
+
+  @screen desktop {
+    @apply h-full;
+  }
 }

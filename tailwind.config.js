@@ -26,6 +26,7 @@ module.exports = {
         '3xl': '32px',
         '4xl': '44px',
         '5xl': '48px',
+        '6xl': '54px',
       },
       colors: {
         transparent: 'transparent',
