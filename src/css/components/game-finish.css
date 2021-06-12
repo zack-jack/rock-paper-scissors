@@ -1,0 +1,46 @@
+.game-finish {
+  @apply flex flex-col justify-between;
+}
+
+.game-finish__form {
+  @apply flex flex-wrap;
+
+  @screen desktop {
+    @apply flex-nowrap justify-between;
+  }
+}
+
+.game-finish__result {
+  @apply flex flex-col items-center w-1/2;
+
+  @screen desktop {
+    @apply w-auto;
+  }
+}
+
+.game-finish__result:nth-of-type(2) {
+  @screen desktop {
+    @apply order-3;
+  }
+}
+
+.game-finish__actions {
+  @apply flex flex-col flex-grow mt-8;
+
+  @screen desktop {
+    @apply flex-grow-0 justify-center;
+    margin: 0 200px;
+  }
+}
+
+.game-finish__selection-label {
+  @apply text-white uppercase font-semibold text-lg tracking-wider;
+}
+
+.game-finish__result-msg {
+  @apply text-white uppercase font-bold text-5xl text-center tracking-wide;
+
+  @screen desktop {
+    @apply text-6xl leading-none;
+  }
+}

@@ -1,7 +1,8 @@
 @import "./button.css";
 @import "./circle.css";
 @import "./footer.css";
-@import "./game.css";
+@import "./game-start.css";
+@import "./game-finish.css";
 @import "./header.css";
 @import "./input-radio.css";
 @import "./modal.css";

@@ -16,8 +16,8 @@ import Header from '../Header';
 import ScoreProvider from '../../context/ScoreProvider';
 
 const page = {
-  stepOne: 'step-one',
-  stepTwo: 'step-two',
+  start: 'game-start',
+  finish: 'game-finish',
   button: {
     resetScore: 'reset-score',
     playAgain: 'play-again',
@@ -185,9 +185,9 @@ test('game is reset for another round | when play again button clicked', async (
   act(() => jest.runAllTimers());
   await screen.queryByTestId(page.button.playAgain);
   fireEvent.click(screen.getByTestId(page.button.playAgain));
-  await screen.queryAllByTestId(page.stepOne);
+  await screen.queryAllByTestId(page.start);
 
-  expect(screen.queryByTestId(page.stepOne)).toBeInTheDocument();
+  expect(screen.queryByTestId(page.start)).toBeInTheDocument();
 });
 
 test('score incremented | when user wins', async () => {

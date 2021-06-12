@@ -135,38 +135,50 @@ const Game = () => {
   if (selectedValue) {
     return (
       <div
-        data-testid="step-two"
-        className="game step-two"
+        data-testid="game-finish"
+        className="game-finish"
       >
-        <form noValidate onSubmit={reset}>
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col items-center">
-              {
+        <form
+          noValidate
+          className="game-finish__form"
+          onSubmit={reset}
+        >
+          <div className="game-finish__result">
+            {
                 getSelectionIcon({
                   value: options.indexOf(selectedValue),
                   player: true,
                 })
               }
-              <p className="game__selection-label mt-4">You picked</p>
-            </div>
-            <div className="flex flex-col items-center">
-              {
+            <p className="game-finish__selection-label mt-4">You picked</p>
+          </div>
+          <div className="game-finish__result">
+            {
                 getSelectionIcon({
                   value: options.indexOf(computerSelection),
                   player: false,
                 })
               }
-              <p
-                className={loading ? 'game__selection-label invisible mt-4' : 'game__selection-label mt-4'}
-              >
-                The house picked
-              </p>
-            </div>
+            <p
+              className={
+                loading
+                  ? 'game-finish__selection-label invisible mt-4'
+                  : 'game-finish__selection-label mt-4'
+              }
+            >
+              The house picked
+            </p>
           </div>
-          <div className={loading ? 'flex flex-col invisible mt-8' : 'flex flex-col mt-8'}>
+          <div
+            className={
+              loading
+                ? 'game-finish__actions invisible'
+                : 'game-finish__actions'
+            }
+          >
             <p
               data-testid="result-message"
-              className="game__result-msg"
+              className="game-finish__result-msg"
             >
               { getResultMessage() }
             </p>
@@ -194,10 +206,10 @@ const Game = () => {
   // No user selection has been made yet
   return (
     <div
-      data-testid="step-one"
-      className="game step-one"
+      data-testid="game-start"
+      className="game-start"
     >
-      <form noValidate className="game__form" onSubmit={submit}>
+      <form noValidate className="game-start__form" onSubmit={submit}>
         <InputRadio
           formValue="paper"
           name="rps"

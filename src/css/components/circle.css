@@ -65,7 +65,11 @@
 
 .circle--winner {
   .circle__outer {
-    box-shadow: 0 0 60px 15px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 125px 10px rgba(255, 255, 255, 0.4);
+
+    @screen desktop {
+      box-shadow: 0 0 600px 10px rgba(255, 255, 255, 0.5);
+    }
   }
 }
 

@@ -1,0 +1,23 @@
+.game-start {
+  @apply flex flex-col justify-between  bg-cover bg-no-repeat;
+  background-image: url('../../assets/images/_bg-triangle.svg');
+  background-position: 0px 75px;
+
+  @screen desktop {
+    background-position: 100px 115px;
+  }
+}
+
+.game-start__form {
+  @apply flex flex-wrap items-center justify-between;
+  height: 400px;
+
+  @screen desktop {
+    height: 500px;
+    width: 500px;
+  }
+}
+
+.game-start__form > .input-radio:last-child {
+  @apply w-full;
+}
