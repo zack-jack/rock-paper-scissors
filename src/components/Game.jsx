@@ -135,8 +135,8 @@ const Game = () => {
   if (selectedValue) {
     return (
       <div
-        data-testid="step-three"
-        className="game step-three"
+        data-testid="step-two"
+        className="game step-two"
       >
         <form noValidate onSubmit={reset}>
           <div className="flex items-center justify-between">

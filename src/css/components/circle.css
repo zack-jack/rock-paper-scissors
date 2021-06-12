@@ -2,6 +2,11 @@
   @apply flex items-center justify-center;
   height: 130px;
   width: 130px;
+
+  @screen desktop {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 .circle__outer {
@@ -10,6 +15,11 @@
   width: 130px;
   border-radius: 50%;
   box-shadow: inset 1px -4px 2px rgba(0, 0, 0, 0.4);
+
+  @screen desktop {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 .circle__inner {
@@ -19,6 +29,11 @@
   padding: 40% 0;
   border-radius: 50%;
   box-shadow: inset 0 5px 2px -1px rgba(0, 0, 0, 0.25);
+
+  @screen desktop {
+    width: 76%;
+    padding: 38% 0;
+  }
 }
 
 .circle--blue {

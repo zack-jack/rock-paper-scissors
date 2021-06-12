@@ -18,7 +18,6 @@ import ScoreProvider from '../../context/ScoreProvider';
 const page = {
   stepOne: 'step-one',
   stepTwo: 'step-two',
-  stepThree: 'step-three',
   button: {
     resetScore: 'reset-score',
     playAgain: 'play-again',

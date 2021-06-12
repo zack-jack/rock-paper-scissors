@@ -9,10 +9,10 @@ function App() {
 
   return (
     <ScoreProvider score={score}>
-      <div className="bg-gradient">
-        <div className="u-container">
+      <div className="app bg-gradient">
+        <div className="app__content">
           <Header />
-          <main className="flex flex-col flex-grow justify-center py-8">
+          <main className="u-container">
             <Game />
           </main>
           <Footer />
