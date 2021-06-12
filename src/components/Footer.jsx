@@ -8,11 +8,11 @@ const Footer = () => {
 
   return (
     <>
-      <footer>
+      <footer className="footer">
         <button
           data-testid="rules-btn"
           type="button"
-          className="btn btn--ghost w-full"
+          className="btn btn--ghost"
           onClick={open}
         >
           Rules

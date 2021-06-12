@@ -1,0 +1,7 @@
+.footer {
+  @apply flex flex-col;
+
+  @screen desktop {
+    @apply flex-row justify-end;
+  }
+}
