@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { PropTypes } from 'prop-types';
 import { ReactComponent as CloseXSVG } from '../assets/images/_icon-close-x.svg';
@@ -10,12 +10,17 @@ const Modal = ({
 
   if (active && !isOpen) setActive(() => false);
 
-  const onClose = () => {
-    setActive((currentIsActive) => !currentIsActive);
-
-    setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       close();
     }, 300);
+
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
+  const onClose = () => {
+    setActive((currentIsActive) => !currentIsActive);
   };
 
   if (!isOpen) return null;

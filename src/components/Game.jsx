@@ -110,17 +110,22 @@ const Game = () => {
     );
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const simulated = simulateComputerSelection();
+      setComputerSelection(simulated);
+      setLoading(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedValue]);
+
   const submit = (e) => {
     e.preventDefault();
 
     setLoading(true);
     setSelectedValue(e.target.value);
-
-    setTimeout(() => {
-      const simulated = simulateComputerSelection();
-      setComputerSelection(simulated);
-      setLoading(false);
-    }, 1200);
   };
 
   const handleValueChange = (e) => {
