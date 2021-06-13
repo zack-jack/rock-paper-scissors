@@ -2,7 +2,7 @@
 
 Rock, paper, scissors game.
 
-[Live demo](https://rock-paper-scissors-omega-beryl.vercel.app/)
+[Live demo](https://rock-paper-scissors-zack-jack.vercel.app/)
 
 Designs for this project were provided by [Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
 
